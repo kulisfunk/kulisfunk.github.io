@@ -1,0 +1,50 @@
+body, html {
+  height: 100%;
+  margin: 10px;
+}
+
+canvas{
+  border: 1px;
+  margin-left: 135px;
+  margin-top: 120px;
+
+
+}
+
+.clear {
+  height: 30px;
+  width: 60px;
+  margin-left: 30px;
+  background-color: dodgerBlue;
+}
+
+.bg {
+  background-image: url("etchasketch.png");
+    height: 800px;
+    width: 1000px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.shake {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(0px, 4px) rotate(0deg); }
+    10% { transform: translate(0px, -8px) rotate(0deg); }
+    20% { transform: translate(0px, -12px) rotate(0deg); }
+    30% { transform: translate(0px, 8px) rotate(0deg); }
+    40% { transform: translate(0px, 12px) rotate(0deg); }
+    50% { transform: translate(0px, -8px) rotate(0deg); }
+    60% { transform: translate(0px, -12px) rotate(0deg); }
+    70% { transform: translate(0px, 12px) rotate(0deg); }
+    80% { transform: translate(0px, -8px) rotate(0deg); }
+    90% { transform: translate(0px, 8px) rotate(0deg); }
+    100% { transform: translate(0px, 0px) rotate(0deg); }
+}
