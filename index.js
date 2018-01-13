@@ -13,11 +13,8 @@ var app = function(){
 
   // context.fillStyle = "dodgerBlue";
   // context.fillRect(10, 10, 50, 50);
-  context.beginPath();
-  context.moveTo(430, 325);
-  var currentX = 430;
-  var currentY = 325;
-  context.closePath();
+  var xAdjusted = 0;
+  var yAdjusted = 0;
   // context.lineTo(100,200);
   // context.setLineDash([5, 5]);
   // context.stroke();
@@ -53,42 +50,45 @@ canvas.onmousemove = function(position) {
     context.stroke();
   }
 };
-canvas.onmouseup = function() {
+canvas.onmouseup = function(position) {
   isDrawing = false;
+  xAdjusted = (position.clientX - 155);
+  yAdjusted = (position.clientY - 100);
 };
 // ------------------------
 
 
 var onKeyDown = function(event){
+  context.moveTo(xAdjusted, yAdjusted);
 console.log(event);
 console.log(event.keyCode);
   switch(event.keyCode){
     case 37:
     console.log("up");
-      currentX -= 5;
+      xAdjusted -= 5;
       break;
     case 38:
     console.log("up");
-      currentY -=5;
+      yAdjusted -=5;
       break;
     case 39:
     console.log("right");
-      currentX += 5;
+      xAdjusted += 5;
       break;
     case 40:
     console.log("down");
-      currentY += 5;
+      yAdjusted += 5;
       break;
 
   }
 
   event.preventDefault();
-  context.lineTo(currentX, currentY);
-  console.log(currentX);
-  console.log(currentY);
+  context.lineTo(xAdjusted, yAdjusted);
+  console.log(xAdjusted);
+  console.log(yAdjusted);
   context.closePath();
   context.stroke();
-  context.moveTo(currentX, currentY);
+
 }
 
 
@@ -137,13 +137,14 @@ document.addEventListener('keydown', onKeyDown);
  clearButton.addEventListener('click', clearCanvas);
 
 
- //
- // var changeColor = function(){
- //   context.strokeStyle = this.value;
- // };
- //
- // var colorPicker = document.getElementById('color-picker');
- // colorPicker.addEventListener('change', changeColor);
+
+ var changeColor = function(){
+   console.log(this.value);
+   context.strokeStyle = this.value;
+ };
+
+ var colorPicker = document.getElementById('color-picker');
+ colorPicker.addEventListener('change', changeColor);
 
 
 
