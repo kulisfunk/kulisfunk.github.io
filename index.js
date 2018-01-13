@@ -125,11 +125,12 @@ document.addEventListener('keydown', onKeyDown);
  var clearCanvas = function(){
       document.getElementById("canvas").classList.add("shake");
 
-   context.clearRect(0, 0, canvas.width, canvas.height);
-   context.beginPath();
-
+   
    setTimeout(function(){
       document.getElementById("canvas").classList.remove("shake");
+     context.clearRect(0, 0, canvas.width, canvas.height);
+   context.beginPath();
+
    }, 1000);
  }
 
