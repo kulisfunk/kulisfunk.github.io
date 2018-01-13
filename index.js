@@ -40,6 +40,7 @@ canvas.onmousedown = function(position) {
   isDrawing = true;
   xAdjusted = (position.clientX - 155);
   yAdjusted = (position.clientY - 100);
+  context.beginPath();
   context.moveTo(xAdjusted, yAdjusted);
 };
 canvas.onmousemove = function(position) {
@@ -54,11 +55,13 @@ canvas.onmouseup = function(position) {
   isDrawing = false;
   xAdjusted = (position.clientX - 155);
   yAdjusted = (position.clientY - 100);
+  context.closePath();
 };
 // ------------------------
 
 
 var onKeyDown = function(event){
+  context.beginPath();
   context.moveTo(xAdjusted, yAdjusted);
 console.log(event);
 console.log(event.keyCode);
